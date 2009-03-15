@@ -106,7 +106,9 @@
 
 			var href = opts.itemArray[ opts.itemCurrent ].href;
 
-			if (href.match(/#/)) {
+			if (opts.content) {
+				_set_content('<div id="fancy_div">' + opts.content + '</div>', opts.frameWidth, opts.frameHeight);
+			} else if (href.match(/#/)) {
 				var target = window.location.href.split('#')[0]; target = href.replace(target, ''); target = target.substr(target.indexOf('#'));
 
 				_set_content('<div id="fancy_div">' + $(target).html() + '</div>', opts.frameWidth, opts.frameHeight);
